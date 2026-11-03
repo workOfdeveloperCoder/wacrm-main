@@ -2,7 +2,7 @@
 # Project Progress Log
 
 ## Last Updated
-2026-11-03 18:50 (UTC+5)
+2026-11-03 19:10 (UTC+5)
 
 ## Current State
 - The app talks to Postgres through `DATABASE_URL`. It does not call Supabase Auth, Storage, or Realtime.
@@ -25,6 +25,7 @@
 - The browser database client is created once per tab. A new client on every render was retriggering the contacts fetch until React hit its update limit.
 - Browser requests no longer throw "The string did not match the expected pattern" when a response is not JSON. That message was Safari failing to parse an error page.
 - Expanded `.gitignore` so a VPS clone gets source, `package-lock.json`, and `supabase/migrations`, and leaves out `node_modules`, `.next`, secrets (`.env.local`, `.env.local.cloud`), uploads (`data/`), and TypeScript build info.
+- VPS `npm run build` compiled, then failed typecheck because the Next.js `tsconfig.json` included `mcp-server` (its own package, dependencies not installed at the repo root). Excluded `mcp-server` from the app tsconfig. Local `tsc --noEmit` is clean. The same one-line exclude still has to be applied on `/opt/wacrm` before rebuilding there.
 
 ## In Progress / Half Done
 - The local database is empty again after the verification user was deleted. Sign up in the app to create the first account.
