@@ -1,0 +1,65 @@
+# A VPS clone should contain source, the lockfile, and the database
+# migrations. Install and build on the server (`npm ci`, then `npm run build`).
+
+# dependencies (root and mcp-server)
+node_modules/
+
+# Next.js build output
+.next/
+out/
+build/
+.turbo/
+
+# compiled MCP server
+mcp-server/dist/
+
+# uploaded chat and avatar files
+data/
+
+# secrets — copy .env.local.example on the server and fill it in
+.env
+.env.*
+!.env.example
+!.env.local.example
+!.env*.example
+*.pem
+*.key
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# tests and logs
+coverage/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local supabase cli
+supabase/.temp/
+supabase/.branches/
+
+# process managers
+.pm2/
+*.pid
+
+# editor and OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# vercel
+.vercel
+
+# yarn (not used; kept so a stray install is not committed)
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
